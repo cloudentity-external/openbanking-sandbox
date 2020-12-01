@@ -85,6 +85,7 @@ func (s *Server) Start() error {
 
 	r.GET("/clients", s.ListClients())
 	r.DELETE("/consents/:id", s.RevokeConsent())
+	r.DELETE("/clients/:id", s.RevokeConsentsForClient())
 
 	if config, err = LoadConfig(); err != nil {
 		return errors.Wrapf(err, "failed to load config")
