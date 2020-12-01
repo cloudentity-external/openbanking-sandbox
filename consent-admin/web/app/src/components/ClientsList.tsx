@@ -35,7 +35,9 @@ export default ({clients, onRevokeClient, onRevokeConsent}) => {
         <>
             <Typography variant={'h4'}>List of TTPs with granted account access consents</Typography>
             <div style={{marginTop: 32}}>
-                {clients.map(client => (
+                {clients
+                    .sort((a, b) => ("" + a.client_name).localeCompare(b.client_name))
+                    .map(client => (
                     <Paper style={{marginBottom: 32}}>
                         <div style={{
                             padding: 16,
