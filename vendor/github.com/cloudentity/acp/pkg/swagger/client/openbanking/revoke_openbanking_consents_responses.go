@@ -60,7 +60,7 @@ func NewRevokeOpenbankingConsentsNoContent() *RevokeOpenbankingConsentsNoContent
 
 /*RevokeOpenbankingConsentsNoContent handles this case with default header values.
 
-Consent has been revoked
+Consents have been revoked
 */
 type RevokeOpenbankingConsentsNoContent struct {
 }
