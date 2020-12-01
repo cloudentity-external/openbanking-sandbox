@@ -17,7 +17,8 @@ func (s *Server) Index() func(*gin.Context) {
 }
 
 type Client struct {
-	*models.Client
+	ID       string                                    `json:"client_id"`
+	Name     string                                    `json:"client_name,omitempty"`
 	Consents []*models.OpenbankingAccountAccessConsent `json:"consents"`
 }
 
@@ -28,9 +29,10 @@ type ListClientsResponse struct {
 func (s *Server) ListClients() func(*gin.Context) {
 	return func(c *gin.Context) {
 		var (
-			clients  *models.Clients
-			consents *models.ListAccountAccessConsents
-			err      error
+			clients             *models.Clients
+			consents            *models.ListAccountAccessConsents
+			clientsWithConsents []Client
+			err                 error
 		)
 
 		if err = s.IntrospectToken(c); err != nil {
@@ -43,18 +45,19 @@ func (s *Server) ListClients() func(*gin.Context) {
 			return
 		}
 
-		clientsWithConsents := make([]Client, len(clients.Clients))
-
-		for i, oc := range clients.Clients {
+		for _, oc := range clients.Clients {
 			// todo parallel
 			if consents, err = s.Client.ListConsentsForClient(oc.ID); err != nil {
 				c.String(http.StatusBadRequest, fmt.Sprintf("failed to list consents for client: %s, err: %+v", oc.ID, err))
 				return
 			}
 
-			clientsWithConsents[i] = Client{
-				Client:   oc,
-				Consents: consents.Consents,
+			if !oc.System {
+				clientsWithConsents = append(clientsWithConsents, Client{
+					ID:       oc.ID,
+					Name:     oc.Name,
+					Consents: consents.Consents,
+				})
 			}
 		}
 
