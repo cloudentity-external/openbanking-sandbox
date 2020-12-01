@@ -1893,15 +1893,23 @@ idps:
       users:
       - authentication_context:
           name: user
-        password: user
+        password: p@ssw0rd!
         username: user
+      - authentication_context:
+          name: user2
+        password: p@ssw0rd!
+        username: user2
+      - authentication_context:
+          name: user3
+        password: p@ssw0rd!
+        username: user3
   id: bugkgai3g9kregtu04u0
   mappings:
   - source: .
     target: .
     type: any
   method: static
-  name: test
+  name: Mock IDP
   settings:
     azure: {}
     azureb2c: {}
@@ -1931,15 +1939,23 @@ idps:
       users:
       - authentication_context:
           name: user
-        password: user
+        password: p@ssw0rd!
         username: user
+      - authentication_context:
+          name: user2
+        password: p@ssw0rd!
+        username: user2
+      - authentication_context:
+          name: user3
+        password: p@ssw0rd!
+        username: user3
   id: bv0na7omekk67nekvq5g
   mappings:
   - source: .
     target: .
     type: any
   method: static
-  name: test
+  name: Mock IDP
   settings:
     azure: {}
     azureb2c: {}
@@ -1969,7 +1985,7 @@ idps:
       users:
       - authentication_context:
           name: admin
-        password: admin
+        password: p@ssw0rd!
         username: admin
   id: bv2f7uaed9c9is80f2b0
   mappings:
@@ -2007,7 +2023,7 @@ idps:
       users:
       - authentication_context:
           name: Administrator
-        password: admin
+        password: p@ssw0rd!
         username: admin
   id: default
   mappings:
@@ -2045,7 +2061,7 @@ idps:
       users:
       - authentication_context:
           name: Developer
-        password: developer
+        password: p@ssw0rd!
         username: developer
   id: default
   mappings:
