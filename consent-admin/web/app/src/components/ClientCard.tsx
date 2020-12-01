@@ -55,11 +55,17 @@ export default function ClientCard({client, onRevokeClient, onRevokeConsent}) {
                         <Typography
                             style={{fontSize: 16, marginTop: 4}}><strong>{client.client_id}</strong></Typography>
                     </div>
-                    <Divider style={{margin: "24px 0 24px 24px"}}/>
-                    <div style={{marginLeft: 24, display: 'flex', justifyContent: 'space-between'}}>
-                        <Typography>Revoke all the client consents which access the Financial information</Typography>
-                        <Button variant={'contained'} style={{background: '#DC1B37', color: '#fff'}} onClick={onRevokeClient(client.client_id)}>Revoke all</Button>
-                    </div>
+                    {client.consents?.length > 0 && (
+                        <>
+                            <Divider style={{margin: "24px 0 24px 24px"}}/>
+                            <div style={{marginLeft: 24, display: 'flex', justifyContent: 'space-between'}}>
+                                <Typography>Revoke all the client consents which access the Financial
+                                    information</Typography>
+                                <Button variant={'contained'} style={{background: '#DC1B37', color: '#fff'}}
+                                        onClick={onRevokeClient(client.client_id)}>Revoke all</Button>
+                            </div>
+                        </>
+                    )}
                 </div>
             </AccordionSummary>
             <AccordionDetails style={{
@@ -75,7 +81,7 @@ export default function ClientCard({client, onRevokeClient, onRevokeConsent}) {
                             color: "#006580",
                             padding: '24px 0 24px 88px',
                         }}>
-                            <Typography display={'block'} >
+                            <Typography display={'block'}>
                                 Consent ID: <strong>{consent.consent_id}</strong>
                             </Typography>
                             <Typography display={'block'} style={{marginTop: 16}}>
@@ -113,7 +119,8 @@ export default function ClientCard({client, onRevokeClient, onRevokeConsent}) {
                                 ))}
                             </Grid>
                             <Divider style={{margin: "24px 0"}}/>
-                            <Button variant={'outlined'} color={'primary'} onClick={onRevokeConsent(consent.consent_id)}>Revoke Access</Button>
+                            <Button variant={'outlined'} color={'primary'}
+                                    onClick={onRevokeConsent(consent.consent_id)}>Revoke Access</Button>
                         </div>
                     </div>
                 ))}
