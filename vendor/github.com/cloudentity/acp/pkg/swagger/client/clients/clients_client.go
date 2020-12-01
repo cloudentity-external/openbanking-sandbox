@@ -43,7 +43,7 @@ type ClientService interface {
 
 	ListClientsForDeveloper(params *ListClientsForDeveloperParams, authInfo runtime.ClientAuthInfoWriter) (*ListClientsForDeveloperOK, error)
 
-	ListClientsSystem(params *ListClientsSystemParams) (*ListClientsSystemOK, error)
+	ListClientsSystem(params *ListClientsSystemParams, authInfo runtime.ClientAuthInfoWriter) (*ListClientsSystemOK, error)
 
 	ListClientsWithAccess(params *ListClientsWithAccessParams, authInfo runtime.ClientAuthInfoWriter) (*ListClientsWithAccessOK, error)
 
@@ -378,7 +378,7 @@ func (a *Client) ListClientsForDeveloper(params *ListClientsForDeveloperParams, 
 
   This API lists clients by server
 */
-func (a *Client) ListClientsSystem(params *ListClientsSystemParams) (*ListClientsSystemOK, error) {
+func (a *Client) ListClientsSystem(params *ListClientsSystemParams, authInfo runtime.ClientAuthInfoWriter) (*ListClientsSystemOK, error) {
 	// : Validate the params before sending
 	if params == nil {
 		params = NewListClientsSystemParams()
@@ -393,6 +393,7 @@ func (a *Client) ListClientsSystem(params *ListClientsSystemParams) (*ListClient
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &ListClientsSystemReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})

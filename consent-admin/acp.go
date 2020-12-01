@@ -51,9 +51,12 @@ func NewAcpClient(config Config) (AcpClient, error) {
 	cc := clientcredentials.Config{
 		ClientID:     config.SystemClientID,
 		ClientSecret: config.SystemClientSecret,
-		Scopes:       []string{"manage_openbanking_consents"}, // todo get??
-		TokenURL:     config.SystemTokenURL.String(),
-		AuthStyle:    oauth2.AuthStyleInParams,
+		Scopes: []string{
+			"manage_openbanking_consents",
+			"view_clients",
+		},
+		TokenURL:  config.SystemTokenURL.String(),
+		AuthStyle: oauth2.AuthStyleInParams,
 	}
 
 	acpClient.client = client.New(httptransport.NewWithClient(
@@ -74,7 +77,7 @@ func (a *AcpClient) ListClients() (*models.Clients, error) {
 
 	if resp, err = a.client.Clients.ListClientsSystem(clients.NewListClientsSystemParams().
 		WithTid(a.tenant).
-		WithAid(a.clientsServer)); err != nil {
+		WithAid(a.clientsServer), nil); err != nil {
 		return nil, err
 	}
 
