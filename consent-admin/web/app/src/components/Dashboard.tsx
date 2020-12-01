@@ -6,15 +6,14 @@ import Progress from "./Progress";
 import Tab from "@material-ui/core/Tab";
 import Hidden from "@material-ui/core/Hidden";
 import Tabs from "@material-ui/core/Tabs";
-import {Button, Theme} from "@material-ui/core";
+import {Button, Container, Theme, Typography} from "@material-ui/core";
 import {logout} from "./AuthPage";
 import {makeStyles} from "@material-ui/core/styles";
 import {api} from "../api/api";
 import ConfirmationDialog from "./ConfirmationDialog";
 import {Route} from "react-router-dom";
-import ClientsContainer from "./ClientsContainer";
-import AccountsDetailsContainer from "./AccountsDetailsContainer";
-import {clientMockRes} from "./clientsMockRes";
+import noAccountEmptyState from "./no-accounts-empty-state.svg";
+import ClientsList from "./ClientsList";
 
 const useStyles = makeStyles((theme: Theme) => ({
     indicator: {
@@ -82,18 +81,45 @@ export default function Dashboard({authorizationServerURL, authorizationServerId
                     style={{color: '#fff'}}
                     onClick={() => logout(authorizationServerURL, tenantId, authorizationServerId)}>Logout</Button>
             </PageToolbar>
-            <div style={{marginTop: 128, position: "relative"}}>
+            <div style={{position: "relative"}}>
                 {isProgress && <Progress/>}
-
                 {!isProgress && (
-                    <div>
-                        <Route exact path="/" render={() => <ClientsContainer clients={clients}
-                                                                              onRevokeClient={handleRevokeClient}
-                                                                              onRevokeConsent={handleRevokeConsent}
-                        />}
-                        />
-                        <Route exact path="/:id" render={() => <AccountsDetailsContainer/>}/>
-                    </div>
+                    <>
+                        {clients.length === 0 && (
+                            <div style={{textAlign: "center", marginTop: 128}}>
+                                <Typography variant={"h3"} style={{color: "#626576"}}>No authorized 3rd party
+                                    Applications</Typography>
+                                <img src={noAccountEmptyState} style={{marginTop: 64}} alt={"empty state"}/>
+                            </div>
+                        )}
+                        {clients.length > 0 && (
+                            <>
+                                <div style={{
+                                    background: "#F7F7F7",
+                                    height: 148,
+                                    display: 'flex',
+                                    alignItems: 'center'
+                                }}>
+                                    <Container>
+                                        <Typography variant={"h3"} color={"primary"}>
+                                            Authorized 3rd party Applications
+                                        </Typography>
+                                    </Container>
+                                </div>
+                                <Container>
+                                    <Route
+                                        exact
+                                        path="/"
+                                        render={() => <ClientsList
+                                            clients={clients}
+                                            onRevokeClient={handleRevokeClient}
+                                            onRevokeConsent={handleRevokeConsent}
+                                        />}
+                                    />
+                                </Container>
+                            </>
+                        )}
+                    </>
                 )}
 
             </div>

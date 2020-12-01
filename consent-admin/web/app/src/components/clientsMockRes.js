@@ -1,30 +1,60 @@
 export const clientMockRes = {
     "clients": [
         {
-            "client_id": "123",
-            "client_name": "dupa",
+            "client_id": "bugkgm23g9kregtu051g",
+            "client_name": "tpp",
             "consents": [
                 {
-                    "consent_id": "123",
-                    "account_ids": ["aaaa", "bbbb", "cccc"],
-                    "permissions": ["aaaa11111", "bbbb22222", "cccc3333"]
+                    "account_ids": ["22289", "31820"],
+                    "consent_id": "bv3206ta7pl85t7p9e8g",
+                    "creation_date_time": "2020-12-01T10:51:07.514Z",
+                    "expiration_date_time": "0001-01-01T00:00:00.000Z",
+                    "permissions": ["ReadAccountsBasic", "ReadAccountsDetail"],
+                    "status": "Authorised",
+                    "status_update_date_time": "2020-12-01T10:51:25.293Z",
+                    "transaction_from_date_time": "0001-01-01T00:00:00.000Z",
+                    "transaction_to_date_time": "0001-01-01T00:00:00.000Z"
                 },
                 {
-                    "consent_id": "345",
-                    "account_ids": ["aaaa", "bbbb", "cccc"],
-                    "permissions": ["aaaa11111", "bbbb22222", "cccc3333"]
-                },
-                {
-                    "consent_id": "678",
-                    "account_ids": ["aaaa", "bbbb", "cccc"],
-                    "permissions": ["aaaa11111", "bbbb22222", "cccc3333"]
+                    "account_ids": ["22289", "31820"],
+                    "consent_id": "bv3206ta7pl85t7p9e8g",
+                    "creation_date_time": "2020-12-01T10:51:07.514Z",
+                    "expiration_date_time": "0001-01-01T00:00:00.000Z",
+                    "permissions": ["ReadAccountsBasic", "ReadAccountsDetail"],
+                    "status": "Authorised",
+                    "status_update_date_time": "2020-12-01T10:51:25.293Z",
+                    "transaction_from_date_time": "0001-01-01T00:00:00.000Z",
+                    "transaction_to_date_time": "0001-01-01T00:00:00.000Z"
                 }
             ]
         },
         {
-            "client_id": "456",
-            "client_name": "dupa",
-            "consents": []
+            "client_id": "bugkgm23g9kregtu051g",
+            "client_name": "tpp",
+            "consents": [
+                {
+                    "account_ids": ["22289", "31820"],
+                    "consent_id": "bv3206ta7pl85t7p9e8g",
+                    "creation_date_time": "2020-12-01T10:51:07.514Z",
+                    "expiration_date_time": "0001-01-01T00:00:00.000Z",
+                    "permissions": ["ReadAccountsBasic", "ReadAccountsDetail"],
+                    "status": "Authorised",
+                    "status_update_date_time": "2020-12-01T10:51:25.293Z",
+                    "transaction_from_date_time": "0001-01-01T00:00:00.000Z",
+                    "transaction_to_date_time": "0001-01-01T00:00:00.000Z"
+                },
+                {
+                    "account_ids": ["22289", "31820"],
+                    "consent_id": "bv3206ta7pl85t7p9e8g",
+                    "creation_date_time": "2020-12-01T10:51:07.514Z",
+                    "expiration_date_time": "0001-01-01T00:00:00.000Z",
+                    "permissions": ["ReadAccountsBasic", "ReadAccountsDetail"],
+                    "status": "Authorised",
+                    "status_update_date_time": "2020-12-01T10:51:25.293Z",
+                    "transaction_from_date_time": "0001-01-01T00:00:00.000Z",
+                    "transaction_to_date_time": "0001-01-01T00:00:00.000Z"
+                }
+            ]
         }
     ]
 }

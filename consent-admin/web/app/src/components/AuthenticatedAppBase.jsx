@@ -10,19 +10,17 @@ export default function AuthenticatedAppBase({authorizationServerURL, authorizat
 
     return (
         <div style={{marginTop: 64}}>
-            <Container>
-                <Suspense>
-                    <Switch>
-                        <Route path={"/"} render={() =>
-                            <Dashboard
-                                authorizationServerURL={authorizationServerURL}
-                                authorizationServerId={authorizationServerId}
-                                tenantId={tenantId}
-                                userinfo={userinfo}
-                            />}/>
-                    </Switch>
-                </Suspense>
-            </Container>
+            <Suspense>
+                <Switch>
+                    <Route path={"/"} render={() =>
+                        <Dashboard
+                            authorizationServerURL={authorizationServerURL}
+                            authorizationServerId={authorizationServerId}
+                            tenantId={tenantId}
+                            userinfo={userinfo}
+                        />}/>
+                </Switch>
+            </Suspense>
         </div>
     )
 }
