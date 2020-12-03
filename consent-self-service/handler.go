@@ -57,10 +57,6 @@ func (s *Server) ListConsents() func(*gin.Context) {
 				}
 			}
 
-			if _, ok := clientToConsents[c.ID]; !ok {
-				clientToConsents[c.ID] = []models.OpenbankingAccountAccessConsentWithClient{}
-			}
-
 			clientToConsents[c.ID] = append(clientToConsents[c.ID], *c)
 		}
 
