@@ -65,15 +65,7 @@ export default function Dashboard({authorizationServerURL, authorizationServerId
                         aria-label="menu tabs"
                         style={{height: 64}}
                     >
-                        <Tab label="Get started" value={'get-started'}
-                             style={{height: 64, textTransform: "none", minWidth: "unset"}}/>
-                        <Tab label="APIs" value={'apis'}
-                             style={{height: 64, textTransform: "none", minWidth: "unset"}}/>
-                        <Tab label="Help Center" value={'help-center'}
-                             style={{height: 64, textTransform: "none", minWidth: "unset"}}/>
                         <Tab label="Connected Applications" value={'connected-applications'}
-                             style={{height: 64, textTransform: "none", minWidth: "unset"}}/>
-                        <Tab label="Monitoring" value={'monitoring'}
                              style={{height: 64, textTransform: "none", minWidth: "unset"}}/>
                     </Tabs>
                 </Hidden>
