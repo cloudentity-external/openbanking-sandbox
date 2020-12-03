@@ -1,44 +1,30 @@
 export const consentsResMock = {
-    "consents": [
+    "client_consents": [
         {
-            "account_ids": [
-                "22289",
-                "31820"
-            ],
-            "client_uri":"https://localhost:8090",
-            "consent_id": "bv0onril54hmk5ekcv1g",
-            "creation_date_time": "2020-11-27T23:29:50.040Z",
-            "expiration_date_time": "0001-01-01T00:00:00.000Z",
             "id": "bugkgm23g9kregtu051g",
             "name": "tpp",
-            "permissions": [
-                "ReadAccountsBasic",
-                "ReadTransactionsBasic",
-                "ReadTransactionsDebits",
-            ],
-            "status": "Authorized",
-            "status_update_date_time": "2020-11-27T23:29:54.501Z",
-            "transaction_from_date_time": "0001-01-01T00:00:00.000Z",
-            "transaction_to_date_time": "0001-01-01T00:00:00.000Z"
-        },
-        {
-            "account_ids": [
-                "22289",
-                "31820"
-            ],
-            "client_uri":"https://localhost:8090",
-            "consent_id": "bv0onril54hmk5ekcv1h",
-            "creation_date_time": "2020-11-27T23:29:50.040Z",
-            "expiration_date_time": "0001-01-01T00:00:00.000Z",
-            "id": "bugkgm23g9kregtu011",
-            "name": "tpp",
-            "permissions": [
-                "ReadAccountsBasic"
-            ],
-            "status": "Authorized",
-            "status_update_date_time": "2020-11-27T23:29:54.501Z",
-            "transaction_from_date_time": "0001-01-01T00:00:00.000Z",
-            "transaction_to_date_time": "0001-01-01T00:00:00.000Z"
+            "logo_uri": "",
+            "client_uri": "https://localhost:8090",
+            "consents": [
+                {
+                    "account_ids": [
+                        "22289"
+                    ],
+                    "client_uri": "https://localhost:8090",
+                    "consent_id": "bv4f3rckfr0p7q50o1ng",
+                    "creation_date_time": "2020-12-03T14:10:53.648Z",
+                    "expiration_date_time": "0001-01-01T00:00:00.000Z",
+                    "id": "bugkgm23g9kregtu051g",
+                    "name": "tpp",
+                    "permissions": [
+                        "ReadAccountsBasic"
+                    ],
+                    "status": "Authorised",
+                    "status_update_date_time": "2020-12-03T14:11:00.935Z",
+                    "transaction_from_date_time": "0001-01-01T00:00:00.000Z",
+                    "transaction_to_date_time": "0001-01-01T00:00:00.000Z"
+                }
+            ]
         }
     ]
 }
